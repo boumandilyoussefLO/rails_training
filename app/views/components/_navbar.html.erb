@@ -1,0 +1,30 @@
+<script>
+const go_sign_up=()=>{
+    if(window.location.href!=="/") window.location.href="/"
+    console.log("loaction:",window.location.href)
+    
+}
+</script>
+<nav class="bg-gray-800 flex w-screen gap-8 p-3 justify-between">
+<div class="flex gap-8"> 
+<h1 class="capitalize text-white cursor-pointer" onclick="go_sign_up()">friend list </h1>
+<ul class=" flex gap-6">
+<% ["add friend","my friends","about"].each do |listItem| %>
+<li class="text-gray-500 capitalize hover:text-white hover:underline hover:cursor-pointer">
+<%= listItem %>
+</li>
+<%end %>
+</ul>
+</div>
+<div class=" flex gap-4">
+
+<% if session[:user_id]%>
+<%= button_to "Logout" , logout_path,method: :delete, class:"shaddow-lg border rounded-lg text-white px-2 !text-sm py-1 border-blue-300" %>
+<h1 class="absolute top-12 right-2">logged in as: <b class="text-green-300 "><%= @user.username %></b></h1>
+<% else %>
+<%= link_to "sign up", sign_up_path ,class:"text-gray-500 capitalize hover:text-white hover:underline hover:cursor-pointer" %>
+ <%= link_to "sign in", signIn_path , class:"text-gray-500 capitalize hover:text-white hover:underline hover:cursor-pointer" %> 
+<% end %>
+</div>
+
+</nav>

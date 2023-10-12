@@ -1,0 +1,35 @@
+<div class=" flex flex-col gap-12 items-center justify-center w-full lg:w-6/12 mx-auto border border border-gray-500 rounded-xl py-8 shadow-md bg-gradient-to-r from-gray-500 to-[#93deff]">
+<h1 class="capitalize font-bold text-[#f7f7f7] text-3xl font-sans"> Sign UP </h1>
+<%= form_with model: @user ,url: sign_up_path,class:"flex flex-col gap-4" do |form|%>
+
+    <div class="flex justify-between ">
+    <%= form.label :username,"Username:" ,class:"text-[#f7f7f7] text-md "%>
+    <%= form.text_field :username ,class:"py-0 border border-blue-300 rounded-md"%>
+</div>
+    <div class="flex justify-between">
+ <%= form.label :email,"Email:",class:"text-[#f7f7f7] text-md "%> 
+
+    <%= form.text_field :email, class:"py-0 border border-blue-300 rounded-md"%>
+    </div>
+
+    <div class="flex justify-between">
+    <%= form.label :password , "pwd:" ,class:" text-[#f7f7f7] text-md  capitalize" , required:true%>
+    <%= form.password_field :password , class:"py-0 border border-blue-300 rounded-md"%>
+    </div>
+    <div class="flex justify-between gap-4">
+    <%= form.label :password_confirmation, "confirm password:",class:" text-[#f7f7f7] text-md  capitalize"%>
+    <%= form.password_field :password_confirmation ,class:"py-0 border border-blue-300 rounded-md"%>
+    </div>
+    <%= form.submit "sign up",class:"capitalize text-white px-4 py-1 rounded-lg border border-white w-fit mx-auto "%>
+<%end%>
+
+</div>
+<div class=" w-full lg:w-6/12 mx-auto mt-4">
+ <% if @user.errors.any? %>
+
+        <div class="flex flex-col gap-2 justify-center">
+            <% @user.errors.full_messages.each do |message| %>
+                <p class="bg-white text-center text-red-500 shadow-lg border border-blue-300 py-1 rounded-lg"><%= message %></p>
+            <% end %>
+        </div>
+    <% end %> </div>
