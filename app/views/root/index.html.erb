@@ -1,7 +1,13 @@
 <div class="flex flex-col">
 <br/>
-<%= flash[:notice] %>
-<h1 class="text-white bg-blue-500 font-bold block"> hello there this is my first program</h1>
+<%if flash[:notice]%>
+<h1 class="bg-green-400 py-2 px-24 rounded-lg my-2 mx-auto shadow-lg text-white border border-green-500 capitaliwe font-bold"><%= flash[:notice] %> </h1>
+<%end%>
+<%
+=begin%>
+ <h1 class="text-white bg-blue-500 font-bold block"> hello there this is my first program</h1> 
+<%
+=end%>
 
 
 </div>

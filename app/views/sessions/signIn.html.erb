@@ -1,0 +1,21 @@
+<div class=" flex flex-col gap-12 items-center justify-center w-full lg:w-6/12 mx-auto border border border-gray-500 rounded-xl py-8 shadow-md bg-gradient-to-r from-gray-500 to-[#93deff]">
+
+<h1 class="capitalize font-bold text-[#f7f7f7] text-3xl font-sans"> Sign In </h1>
+<%= form_with url: login_path,class:"flex flex-col gap-4" do |form|%>
+    <div class="flex justify-between ">
+        <%= form.label :email,"email:", class:"text-[#f7f7f7] text-md " %>
+        <%= form.text_field :email, class:"py-0 border border-blue-300 rounded-md" %>
+    </div>
+     <div>
+        <%= form.label :password,"password:",class:"text-[#f7f7f7] text-md "  %>
+        <%= form.password_field :password,class:"py-0 border border-blue-300 rounded-md" %>
+    </div>
+    <%= form.submit "sign in" ,class:"capitalize text-white px-4 py-1 rounded-lg border border-white w-fit mx-auto bg-green-300 "%>
+    
+<%end%>
+
+<%if flash[:alert]%>
+<h1 class="bg-red-300 py-2 px-24 rounded-lg my-2 mx-auto shadow-lg text-white border border-blue-500 capitaliwe font-bold"><%= flash[:alert] %> </h1>
+<%end%>
+</div>
+
