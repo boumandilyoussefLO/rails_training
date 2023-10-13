@@ -23,8 +23,11 @@ const go_sign_up=()=>{
 <div class=" flex gap-4">
 
 <% if  Current.user %>
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 bg-green-300 rounded-full mt-1"></div>
+<h1 class=""> <b class="text-green-300 text-xs "><%= Current.user.username %></b></h1> 
+</div>
 <%= button_to "Logout" , logout_path,method: :delete, class:"shaddow-lg border rounded-lg text-white px-2 !text-sm py-1 border-blue-300" %>
-<h1 class="absolute top-12 right-2">logged in as: <b class="text-green-300 "><%= Current.user.username %></b></h1>
 <% else %>
 <%= link_to "sign up", sign_up_path ,class:"text-gray-500 capitalize hover:text-white hover:underline hover:cursor-pointer" %>
  <%= link_to "sign in", signIn_path , class:"text-gray-500 capitalize hover:text-white hover:underline hover:cursor-pointer" %> 
