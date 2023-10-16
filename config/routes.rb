@@ -22,5 +22,12 @@ Rails.application.routes.draw do
   # ---------------------------------------- edit password routes ------------------------------------
   get 'edit_password', to: 'passwords#index'
   patch 'edit_password' , to: 'passwords#edit'
+  #----------------------------------- friends routes ------------------------------------------------
+  get 'add_friends' , to: "friends#add_friend"
+  post 'add_friends' , to: "friends#create"
+  get '/show_friends' , to: "friends#show_friends"
+  patch 'edit_friend/:id', to: "friends#update",as: :edit_friend
+  get 'edit_friend/:id', to: "friends#edit"
+  delete 'friends/delete/:id', to: "friends#delete", as: :delete_friend
 
 end

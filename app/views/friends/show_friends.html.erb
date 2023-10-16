@@ -1,0 +1,35 @@
+<h1> Friend List </h1>
+<div class="w-full flex flex-col items-center">
+    <% if @friends%>
+<h1 class="text-3xl underline text-[#131213] py-2 "> friends List </h1>
+        <table class="w-5/6 border-2 border-gray-300 rounded-full">
+            <thead>
+                <tr>
+                    <% ["first name","last name","email","phone" ].each do |title| %>
+                        <th class="w-1/5 border-r-2"> <%= title %> </th>
+                    <%end%>
+                </tr>
+            </thead>
+            <tbody>
+
+                        <% @friends.reverse.each do |friend| %>
+                        <tr class="w-1/4 border-r-2 text-center bg-gray-200"> 
+                        
+                                <td class="py-4  border border-gray-300"><%= friend.first_name %>  </td>
+                                <td class="py-4  border border-gray-300"><%= friend.last_name %>  </td>
+                                <td class="py-4  border border-gray-300"><%= friend.email %>  </td>
+                                <td class="py-4  border border-gray-300"><%= friend.phone %>  </td>
+                                <td class="py-4  border border-gray-300 flex gap-2 items-center justify-center"> 
+                                    <%= link_to "edit","/edit_friend/#{friend.id}",class:"px-2 py-0.5 capitalize border-2 border-blue-300 rounded-full bg-orange-300 text-white"%>
+                                    /<%= button_to "delete","friends/delete/#{friend.id}",method: :delete,class:"px-2 py-0.5 capitalize border-2 border-blue-300 rounded-full bg-red-400 text-white"%>
+                                </td>
+                        </tr>
+                    <%end%>
+        
+
+            </tbody>
+        </table>
+        <%else%>
+        <h1 class="text-center text-3xl w-full h-full flex items-center justify-center mt-12"> You're not signed in please sign in to be able to see the users ! </h1>
+    <%end%>
+</div>
