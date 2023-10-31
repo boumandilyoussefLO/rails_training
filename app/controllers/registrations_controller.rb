@@ -3,15 +3,20 @@ class RegistrationsController < ApplicationController
         @user = User.new
     end
     def create
+        begin
         @user=User.new(user_params)
         @user.save
         if @user.save
             session[:user_id]=@user.id
             flash[:notice]= "user successefully added!"
             redirect_to root_path ,status: 301
+            
         else
             render :signUp, status: 422
         end
+    rescue  => error
+        puts error
+    end
     end
 
     private

@@ -9,7 +9,16 @@ const go_sign_up=()=>{
 <div class="flex gap-8"> 
 <h1 class="capitalize text-white cursor-pointer" onclick="go_sign_up()">friend list </h1>
 <ul class=" flex gap-6">
-<% ["add_friends","show_friends","about"].each do |listItem| %>
+<li class="text-gray-500 capitalize hover:text-white hover:underline hover:cursor-pointer">
+
+<%= link_to "add friend ",new_friend_path,class:"" %>
+</li>
+<li class="text-gray-500 capitalize hover:text-white hover:underline hover:cursor-pointer">
+
+<%= link_to "show friends ",friends_path,class:"" %>
+</li>
+
+<% ["about"].each do |listItem| %>
 <li class="text-gray-500 capitalize hover:text-white hover:underline hover:cursor-pointer">
 <%= link_to listItem,"/#{listItem}",class:"" %>
 </li>
